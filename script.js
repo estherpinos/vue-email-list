@@ -5,17 +5,17 @@ createApp({
     return{
       apriUrl:'https://flynn.boolean.careers/exercises/api/random/mail',
 
-      emails: ' '
+      emails: []
     }
   },
 
   methods:{
     getApi(){
       for (let i = 0; i < 10; i++){
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        axios.get(this.apriUrl)
         .then( (risposta) => {
           console.log(risposta.data.response);
-          this.emails = risposta.data.response;
+          this.emails.push(risposta.data.response);
           
         })
       }
